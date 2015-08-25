@@ -19,14 +19,6 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var navBar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
-    
-    //Attributes for styling the text in the text fields
-    let memeTextAttribues = [
-        NSStrokeColorAttributeName : UIColor.blackColor(),
-        NSForegroundColorAttributeName : UIColor.whiteColor(),
-        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : NSNumber(float: -3.0)
-    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,22 +29,27 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        // Check if Camera is available
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        // Subscribe to KB notification
         self.subscribeToKeyboardNotifications()
         shareButton.enabled = imagePickerView.image != nil
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        // Don't forget to unsubscribe to KB notification
         self.unsubscribeFromKeyboardNotifications()
     }
     
-    // Add an observer for KB notification
+    /* KeyBoard method */
+    
+    //Add an observer for KB notification
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:" , name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:" , name: UIKeyboardWillHideNotification, object: nil)
     }
-    // Remove thoses observer
+    //Remove thoses observer
     func unsubscribeFromKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardWillHideNotification, object: nil)
@@ -70,12 +67,16 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         }
     }
     
+    // Get KB height to move the User View
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
     }
     
+    /* Action to Album/Photo Button */
+    
+    //From Album Library
     @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
@@ -83,13 +84,25 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
     
+    //From Photo App
     @IBAction func pickAnImageFromPhoto(sender: AnyObject) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.sourceType = .Camera
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
-
+    
+    /* Method for textField attributs && control */
+    
+    //Attributes for styling the text in the text fields
+    let memeTextAttribues = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 38)!,
+        NSStrokeWidthAttributeName : NSNumber(float: -3.0)
+    ]
+    
+    //General method to set both textField attributs
     func setTextAttribut(textField : UITextField, str : String) {
         textField.delegate = self
         textField.text = str
@@ -97,21 +110,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         textField.defaultTextAttributes = memeTextAttribues
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imagePickerView.image = image
-        }
-        
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    //To erase the default text when editing
+    //Erase the default text when editing
     func textFieldDidBeginEditing(textField: UITextField) {
         if (textField == topText && topText.text == " TOP ") {
             topText.text = ""
@@ -126,12 +125,31 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         return true
     }
     
+    /* Delegate method from imagePickerController */
+    
+    //Func to pass the selected image to the imageVC
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.imagePickerView.image = image
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //Func to cancel selection
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    /* Meme method */
+    
     func generateMemedImage() -> UIImage
     {
         toolBar.hidden = true
         navBar.hidden = true
         
-        // Render view to an image
+        //Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
         
