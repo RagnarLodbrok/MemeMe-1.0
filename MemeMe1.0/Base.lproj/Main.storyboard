@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A262e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XjJ-v2-nMa">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6B-4t-TIG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem width="80" style="plain" systemItem="fixedSpace" id="5xO-US-Zkr"/>
+                                    <barButtonItem systemItem="organize" id="EE3-It-tWv">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="vXZ-lx-hvc" id="96N-fs-pop"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="161" style="plain" systemItem="fixedSpace" id="THl-3h-gtf"/>
+                                    <barButtonItem systemItem="camera" id="iQs-2K-z4l">
+                                        <connections>
+                                            <action selector="pickAnImageFromPhoto:" destination="vXZ-lx-hvc" id="GuQ-dm-IN1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jsc-kC-psn">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ktj-hM-skB">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhJ-XA-MA5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="h2b-c8-UJD">
+                                        <connections>
+                                            <action selector="shareMeme:" destination="vXZ-lx-hvc" id="ibL-aW-pRC"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Ffe-pe-W5Z"/>
+                                    <barButtonItem systemItem="cancel" id="OUE-po-uYm"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jsc-kC-psn" firstAttribute="top" secondItem="AhJ-XA-MA5" secondAttribute="bottom" constant="10" id="6jR-0M-sVL"/>
+                            <constraint firstItem="h6B-4t-TIG" firstAttribute="top" secondItem="XjJ-v2-nMa" secondAttribute="bottom" id="7MU-FY-1bP"/>
+                            <constraint firstItem="AhJ-XA-MA5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="B95-ZM-2X4"/>
+                            <constraint firstItem="jsc-kC-psn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="31" id="Bcp-Ci-cyJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AhJ-XA-MA5" secondAttribute="trailing" constant="-16" id="HZT-ot-uK0"/>
+                            <constraint firstItem="jsc-kC-psn" firstAttribute="top" secondItem="AhJ-XA-MA5" secondAttribute="bottom" constant="10" id="JDu-si-Nnc"/>
+                            <constraint firstItem="XjJ-v2-nMa" firstAttribute="top" secondItem="AhJ-XA-MA5" secondAttribute="bottom" id="JI3-Ql-oOc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ktj-hM-skB" secondAttribute="trailing" constant="31" id="KiB-Mn-2Ub"/>
+                            <constraint firstItem="Ktj-hM-skB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="31" id="UjJ-i1-TUg"/>
+                            <constraint firstItem="h6B-4t-TIG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="XTX-hn-0sW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jsc-kC-psn" secondAttribute="trailing" constant="31" id="YSh-xf-XJh"/>
+                            <constraint firstItem="AhJ-XA-MA5" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="aU7-TL-Y7B"/>
+                            <constraint firstItem="XjJ-v2-nMa" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="daX-Le-5gX"/>
+                            <constraint firstItem="h6B-4t-TIG" firstAttribute="top" secondItem="XjJ-v2-nMa" secondAttribute="bottom" id="e9S-Vf-Kup"/>
+                            <constraint firstItem="h6B-4t-TIG" firstAttribute="top" secondItem="Ktj-hM-skB" secondAttribute="bottom" constant="12" id="fih-rZ-ChR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h6B-4t-TIG" secondAttribute="trailing" constant="-16" id="pCp-xH-Wg1"/>
+                            <constraint firstItem="XjJ-v2-nMa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="sO6-tn-ZFm"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="h6B-4t-TIG" secondAttribute="bottom" id="xBZ-g4-Ize"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="XjJ-v2-nMa"/>
+                                <exclude reference="h6B-4t-TIG"/>
+                                <exclude reference="jsc-kC-psn"/>
+                                <exclude reference="Ktj-hM-skB"/>
+                                <exclude reference="AhJ-XA-MA5"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="xBZ-g4-Ize"/>
+                                <exclude reference="KiB-Mn-2Ub"/>
+                                <exclude reference="UjJ-i1-TUg"/>
+                                <exclude reference="6jR-0M-sVL"/>
+                                <exclude reference="Bcp-Ci-cyJ"/>
+                                <exclude reference="JDu-si-Nnc"/>
+                                <exclude reference="YSh-xf-XJh"/>
+                                <exclude reference="B95-ZM-2X4"/>
+                                <exclude reference="HZT-ot-uK0"/>
+                                <exclude reference="aU7-TL-Y7B"/>
+                                <exclude reference="7MU-FY-1bP"/>
+                                <exclude reference="XTX-hn-0sW"/>
+                                <exclude reference="e9S-Vf-Kup"/>
+                                <exclude reference="fih-rZ-ChR"/>
+                                <exclude reference="pCp-xH-Wg1"/>
+                                <exclude reference="JI3-Ql-oOc"/>
+                                <exclude reference="daX-Le-5gX"/>
+                                <exclude reference="sO6-tn-ZFm"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="XjJ-v2-nMa"/>
+                                <include reference="h6B-4t-TIG"/>
+                                <include reference="jsc-kC-psn"/>
+                                <include reference="Ktj-hM-skB"/>
+                                <include reference="AhJ-XA-MA5"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="xBZ-g4-Ize"/>
+                                <include reference="KiB-Mn-2Ub"/>
+                                <include reference="UjJ-i1-TUg"/>
+                                <include reference="6jR-0M-sVL"/>
+                                <include reference="Bcp-Ci-cyJ"/>
+                                <include reference="JDu-si-Nnc"/>
+                                <include reference="YSh-xf-XJh"/>
+                                <include reference="B95-ZM-2X4"/>
+                                <include reference="HZT-ot-uK0"/>
+                                <include reference="aU7-TL-Y7B"/>
+                                <include reference="7MU-FY-1bP"/>
+                                <include reference="XTX-hn-0sW"/>
+                                <include reference="e9S-Vf-Kup"/>
+                                <include reference="fih-rZ-ChR"/>
+                                <include reference="pCp-xH-Wg1"/>
+                                <include reference="JI3-Ql-oOc"/>
+                                <include reference="daX-Le-5gX"/>
+                                <include reference="sO6-tn-ZFm"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="botText" destination="Ktj-hM-skB" id="zxl-cS-UR3"/>
+                        <outlet property="cameraButton" destination="iQs-2K-z4l" id="4du-qg-OUh"/>
+                        <outlet property="imagePickerView" destination="XjJ-v2-nMa" id="BYo-Wl-Cc6"/>
+                        <outlet property="navBar" destination="AhJ-XA-MA5" id="bOh-xU-0EV"/>
+                        <outlet property="shareButton" destination="h2b-c8-UJD" id="3ab-Iw-MvU"/>
+                        <outlet property="toolBar" destination="h6B-4t-TIG" id="75A-EN-lhB"/>
+                        <outlet property="topText" destination="jsc-kC-psn" id="8cs-4B-un1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="699" y="550"/>
+        </scene>
+    </scenes>
+</document>
