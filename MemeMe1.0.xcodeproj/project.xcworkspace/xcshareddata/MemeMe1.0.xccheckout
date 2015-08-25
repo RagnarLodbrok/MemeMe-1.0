@@ -10,22 +10,26 @@
 	<string>MemeMe1.0</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>4ABF77AFC11CD43630F35E01B77721690B67BC88</key>
+		<string>github.com:RagnarLodbrok/MemeMe-1.0.git</string>
 		<key>9795FB898AD0BFA0E9AE8C2DBFE1208FEB49D5D3</key>
 		<string>git.epitech.eu:/felot_g/Swift</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MemeMe1.0/MemeMe1.0.xcodeproj</string>
+	<string>MemeMe1.0.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>4ABF77AFC11CD43630F35E01B77721690B67BC88</key>
+		<string>../..</string>
 		<key>9795FB898AD0BFA0E9AE8C2DBFE1208FEB49D5D3</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>git.epitech.eu:/felot_g/Swift</string>
+	<string>github.com:RagnarLodbrok/MemeMe-1.0.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9795FB898AD0BFA0E9AE8C2DBFE1208FEB49D5D3</string>
+	<string>4ABF77AFC11CD43630F35E01B77721690B67BC88</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -34,7 +38,15 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>9795FB898AD0BFA0E9AE8C2DBFE1208FEB49D5D3</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Swift</string>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4ABF77AFC11CD43630F35E01B77721690B67BC88</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MemeMe1.0</string>
 		</dict>
 	</array>
 </dict>

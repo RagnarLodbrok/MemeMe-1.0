@@ -144,6 +144,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         return memedImage
     }
     
+    
     func save() {
         let memedImage = generateMemedImage()
         //Create the meme
