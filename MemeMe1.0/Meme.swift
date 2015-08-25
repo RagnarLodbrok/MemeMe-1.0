@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-class Meme {
+struct Meme {
     var topText: String
     var botText: String
     var originalImage: UIImage
     var memedImage : UIImage
     
-    init (topText: String, botText: String, originalImage: UIImage, memedImage: UIImage) {
-        self.topText = topText
-        self.botText = botText
-        self.originalImage = originalImage
-        self.memedImage = memedImage
-    }
+//    init (topText: String, botText: String, originalImage: UIImage, memedImage: UIImage) {
+//        self.topText = topText
+//        self.botText = botText
+//        self.originalImage = originalImage
+//        self.memedImage = memedImage
+//    }
 }

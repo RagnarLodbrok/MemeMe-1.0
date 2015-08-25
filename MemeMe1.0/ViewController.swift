@@ -32,7 +32,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         // Check if Camera is available
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         // Subscribe to KB notification
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
         shareButton.enabled = imagePickerView.image != nil
     }
     
@@ -62,9 +62,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if botText.isFirstResponder() {
-            view.frame.origin.y += getKeyboardHeight(notification)
-        }
+            view.frame.origin.y == 0
     }
     
     // Get KB height to move the User View
@@ -106,8 +104,8 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     func setTextAttribut(textField : UITextField, str : String) {
         textField.delegate = self
         textField.text = str
-        textField.textAlignment = .Center
         textField.defaultTextAttributes = memeTextAttribues
+        textField.textAlignment = .Center
     }
     
     //Erase the default text when editing
