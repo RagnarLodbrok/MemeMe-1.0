@@ -39,7 +39,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         // Don't forget to unsubscribe to KB notification
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
     /* KeyBoard method */
@@ -79,7 +79,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.sourceType = .PhotoLibrary
-        self.presentViewController(pickerController, animated: true, completion: nil)
+        presentViewController(pickerController, animated: true, completion: nil)
     }
     
     //From Photo App
@@ -87,7 +87,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.sourceType = .Camera
-        self.presentViewController(pickerController, animated: true, completion: nil)
+        presentViewController(pickerController, animated: true, completion: nil)
     }
     
     /* Method for textField attributs && control */
@@ -128,7 +128,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     //Func to pass the selected image to the imageVC
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imagePickerView.image = image
+            imagePickerView.image = image
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -148,8 +148,8 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         navBar.hidden = true
         
         //Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -164,7 +164,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     func save() {
         let memedImage = generateMemedImage()
         //Create the meme
-        var meme = Meme(topText: self.topText.text!, botText: self.botText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        var meme = Meme(topText: topText.text!, botText: botText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
     }
     
     @IBAction func shareMeme(sender: AnyObject) {
